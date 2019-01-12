@@ -1,0 +1,44 @@
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://106.12.23.45:3306/hezu-production?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
+    username: system
+    password: Hezu123$.
+    driver-class-name: com.mysql.jdbc.Driver
+  http:
+    multipart:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+logging:
+  level:
+    org.springframework.web: INFO
+    web.file.mapper: DEBUG
+server:
+  port: 443
+
+mybatis:
+  type-aliases-package: web.file.entity
+  configuration:
+    mapUnderscoreToCamelCase: true
+mapper:
+  mappers: web.file.baseMapper.MyMapper
+  not-empty: false
+  identity: MYSQL
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+qiniu:
+  cloud:
+    bucket: production
+    accessKey: haPHu0pQwFGoYparuOTc5SMepFqY4mIcRrDhXxEb
+    secretKey: 0CAzx1rNvI0ipHPAJsLHmesGC94EXU30gPPggjB0
+
+
+
